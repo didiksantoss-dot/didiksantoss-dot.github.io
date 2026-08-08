@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arisan Boyolali | Dashboard Paguyuban</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+        <div class="brand">
+            <div class="brand-logo">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div class="brand-text">
+                <h1>Arisan<br>Boyolali</h1>
+                <p>Paguyuban Guyub Rukun</p>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <span class="nav-label">MENU UTAMA</span>
+
+            <a href="#dashboard" class="nav-item active">
+                <i class="fa-solid fa-house"></i><span>Dashboard</span>
+            </a>
+            <a href="#anggota" class="nav-item">
+                <i class="fa-solid fa-users"></i><span>Data Anggota</span>
+            </a>
+            <a href="#iuran" class="nav-item">
+                <i class="fa-solid fa-wallet"></i><span>Iuran</span>
+            </a>
+            <a href="#jadwal" class="nav-item">
+                <i class="fa-solid fa-calendar-days"></i><span>Jadwal Arisan</span>
+            </a>
+            <a href="#penerima" class="nav-item">
+                <i class="fa-solid fa-trophy"></i><span>Penerima Arisan</span>
+            </a>
+
+            <div class="nav-divider"></div>
+            <span class="nav-label">LAINNYA</span>
+
+            <a href="#pengumuman" class="nav-item">
+                <i class="fa-solid fa-bullhorn"></i><span>Pengumuman</span>
+            </a>
+            <a href="#galeri" class="nav-item">
+                <i class="fa-solid fa-images"></i><span>Galeri</span>
+            </a>
+            <a href="#kontak" class="nav-item">
+                <i class="fa-solid fa-phone"></i><span>Kontak Pengurus</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="heart-box">❤️</div>
+            <div>
+                <strong>Guyub &amp; Rukun</strong>
+                <small>Seduluran selawase</small>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Buka menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="search-global">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input id="globalSearch" type="search"
+                       placeholder="Cari menu, anggota, atau informasi...">
+                <i class="fa-solid fa-magnifying-glass search-end"></i>
+            </div>
+
+            <div class="top-actions">
+                <button class="top-icon" id="themeToggle" title="Dark mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+                <button class="top-icon notification-btn" title="Notifikasi">
+                    <i class="fa-regular fa-bell"></i>
+                    <b>3</b>
+                </button>
+
+                <div class="profile">
+                    <div class="avatar purple">AD</div>
+                    <div class="profile-name">
+                        <strong>Admin</strong>
+                        <span>Pengurus</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+            </div>
+        </header>
+
+        <div class="content" id="dashboard">
+
+            <!-- HERO -->
+            <section class="hero">
+                <div class="hero-copy">
+                    <div class="hero-welcome">Sugeng Rawuh, Admin! 👋</div>
+                    <h2>Selamat Datang di Dashboard<br>Arisan Boyolali</h2>
+                    <p>Bersama menjaga kebersamaan, kerukunan,<br>
+                       dan kekeluargaan dalam paguyuban.</p>
+                </div>
+                <div class="hero-illustration">
+                    <i class="fa-solid fa-people-group"></i>
+                </div>
+            </section>
+
+            <!-- STATS -->
+            <section class="stats-grid">
+                <article class="stat-card">
+                    <div class="stat-icon purple-bg"><i class="fa-solid fa-users"></i></div>
+                    <div>
+                        <span>Total Anggota</span>
+                        <h3>125</h3>
+                        <small class="green"><i class="fa-solid fa-arrow-up"></i> 8 anggota baru</small>
+                    </div>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon green-bg"><i class="fa-solid fa-wallet"></i></div>
+                    <div>
+                        <span>Total Iuran</span>
+                        <h3>Rp 12.500.000</h3>
+                        <small class="green"><i class="fa-solid fa-circle-check"></i> Periode Agustus 2026</small>
+                    </div>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon orange-bg"><i class="fa-solid fa-trophy"></i></div>
+                    <div>
+                        <span>Penerima Arisan</span>
+                        <h3>8</h3>
+                        <small class="green"><i class="fa-solid fa-circle-check"></i> Sudah menerima</small>
+                    </div>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon blue-bg"><i class="fa-solid fa-calendar-check"></i></div>
+                    <div>
+                        <span>Arisan Berikutnya</span>
+                        <h3>23</h3>
+                        <small>Agustus 2026</small>
+                    </div>
+                </article>
+            </section>
+
+            <!-- ROW 1 -->
+            <section class="three-col">
+
+                <!-- SCHEDULE -->
+                <article class="card" id="jadwal">
+                    <div class="card-title">
+                        <div><i class="fa-regular fa-calendar purple-icon"></i>
+                            <h3>Jadwal Arisan Terdekat</h3></div>
+                        <a href="#jadwal">Lihat Semua</a>
+                    </div>
+
+                    <div class="next-event">
+                        <div class="date-box">
+                            <span>AGU</span><strong>23</strong><small>2026</small>
+                        </div>
+                        <div class="event-main">
+                            <div class="event-line">
+                                <strong>Arisan Bulanan</strong>
+                                <span class="status-pill">Akan Datang</span>
+                            </div>
+                            <p>Minggu, 23 Agustus 2026 • 19.30 WIB</p>
+                            <small><i class="fa-solid fa-location-dot"></i> Rumah Bapak Sumarno</small>
+                        </div>
+                    </div>
+
+                    <div class="schedule-list">
+                        <div class="schedule-row">
+                            <div class="mini-date"><b>23</b><span>AGU</span></div>
+                            <div><strong>Arisan Bulanan</strong><small>Rumah Bapak Sumarno</small></div>
+                            <time>19.30 WIB</time><i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        <div class="schedule-row">
+                            <div class="mini-date"><b>27</b><span>SEP</span></div>
+                            <div><strong>Arisan Bulanan</strong><small>Rumah Ibu Sri Wahyuni</small></div>
+                            <time>19.30 WIB</time><i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        <div class="schedule-row">
+                            <div class="mini-date"><b>25</b><span>OKT</span></div>
+                            <div><strong>Arisan Bulanan</strong><small>Rumah Bapak Joko</small></div>
+                            <time>19.30 WIB</time><i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    <button class="full-btn">Lihat Semua Jadwal</button>
+                </article>
+
+                <!-- WINNERS -->
+                <article class="card" id="penerima">
+                    <div class="card-title">
+                        <div><i class="fa-solid fa-trophy purple-icon"></i>
+                            <h3>Penerima Arisan Terakhir</h3></div>
+                        <a href="#penerima">Lihat Semua</a>
+                    </div>
+
+                    <div class="winner-list">
+                        <div class="winner-row"><span class="rank">01</span><span class="avatar yellow">AS</span>
+                            <div><strong>Andi Setiawan</strong><small>Juli 2026</small></div><b>Rp 10.000.000</b></div>
+                        <div class="winner-row"><span class="rank">02</span><span class="avatar green">SW</span>
+                            <div><strong>Sri Wahyuni</strong><small>Juni 2026</small></div><b>Rp 10.000.000</b></div>
+                        <div class="winner-row"><span class="rank">03</span><span class="avatar orange">BS</span>
+                            <div><strong>Budi Santoso</strong><small>Mei 2026</small></div><b>Rp 10.000.000</b></div>
+                        <div class="winner-row"><span class="rank">04</span><span class="avatar pink">SR</span>
+                            <div><strong>Siti Rahma</strong><small>April 2026</small></div><b>Rp 10.000.000</b></div>
+                    </div>
+                    <button class="full-btn">Lihat Semua Penerima</button>
+                </article>
+
+                <!-- ANNOUNCEMENTS -->
+                <article class="card" id="pengumuman">
+                    <div class="card-title">
+                        <div><i class="fa-solid fa-bullhorn purple-icon"></i>
+                            <h3>Pengumuman Terbaru</h3></div>
+                        <a href="#pengumuman">Lihat Semua</a>
+                    </div>
+
+                    <div class="announcement">
+                        <div class="announce-icon purple-soft"><i class="fa-regular fa-calendar"></i></div>
+                        <div><small>08 Agustus 2026</small><strong>Jadwal arisan bulan Agustus</strong>
+                            <p>Arisan akan dilaksanakan pada Minggu, 23 Agustus 2026 pukul 19.30 WIB.</p></div>
+                    </div>
+                    <div class="announcement">
+                        <div class="announce-icon green-soft"><i class="fa-solid fa-wallet"></i></div>
+                        <div><small>05 Agustus 2026</small><strong>Pembayaran iuran</strong>
+                            <p>Mohon seluruh anggota melakukan pembayaran iuran sebelum tanggal 20 Agustus 2026.</p></div>
+                    </div>
+                </article>
+            </section>
+
+            <!-- ROW 2 -->
+            <section class="bottom-grid">
+
+                <!-- MEMBERS -->
+                <article class="card member-card" id="anggota">
+                    <div class="card-title">
+                        <div><i class="fa-solid fa-users purple-icon"></i>
+                            <h3>Data Anggota Terbaru</h3></div>
+                        <a href="#anggota">Lihat Semua</a>
+                    </div>
+
+                    <div class="table-wrap">
+                        <table id="memberTable">
+                            <thead>
+                            <tr><th>No</th><th>Anggota</th><th>RT</th><th>No. HP</th><th>Status</th><th>Iuran</th><th>Aksi</th></tr>
+                            </thead>
+                            <tbody>
+                            <tr data-name="Andi Setiawan"><td>1</td><td><div class="member"><span class="avatar purple">AS</span><div><strong>Andi Setiawan</strong><small>Anggota #001</small></div></div></td><td>RT 01</td><td>0812-3456-7890</td><td><span class="badge active">Aktif</span></td><td><span class="badge paid">Lunas</span></td><td><button class="view-btn" data-member="Andi Setiawan"><i class="fa-regular fa-eye"></i></button></td></tr>
+                            <tr data-name="Sri Wahyuni"><td>2</td><td><div class="member"><span class="avatar green">SW</span><div><strong>Sri Wahyuni</strong><small>Anggota #002</small></div></div></td><td>RT 02</td><td>0813-4567-8901</td><td><span class="badge active">Aktif</span></td><td><span class="badge paid">Lunas</span></td><td><button class="view-btn" data-member="Sri Wahyuni"><i class="fa-regular fa-eye"></i></button></td></tr>
+                            <tr data-name="Budi Santoso"><td>3</td><td><div class="member"><span class="avatar orange">BS</span><div><strong>Budi Santoso</strong><small>Anggota #003</small></div></div></td><td>RT 03</td><td>0814-5678-9012</td><td><span class="badge active">Aktif</span></td><td><span class="badge unpaid">Belum</span></td><td><button class="view-btn" data-member="Budi Santoso"><i class="fa-regular fa-eye"></i></button></td></tr>
+                            <tr data-name="Siti Rahma"><td>4</td><td><div class="member"><span class="avatar pink">SR</span><div><strong>Siti Rahma</strong><small>Anggota #004</small></div></div></td><td>RT 04</td><td>0815-6789-0123</td><td><span class="badge active">Aktif</span></td><td><span class="badge paid">Lunas</span></td><td><button class="view-btn" data-member="Siti Rahma"><i class="fa-regular fa-eye"></i></button></td></tr>
+                            <tr data-name="Dedi Kurniawan"><td>5</td><td><div class="member"><span class="avatar gray">DK</span><div><strong>Dedi Kurniawan</strong><small>Anggota #005</small></div></div></td><td>RT 05</td><td>0816-7890-1234</td><td><span class="badge inactive">Nonaktif</span></td><td><span class="badge unpaid">Belum</span></td><td><button class="view-btn" data-member="Dedi Kurniawan"><i class="fa-regular fa-eye"></i></button></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+
+                <!-- CONTACTS -->
+                <article class="card contact-card" id="kontak">
+                    <div class="card-title">
+                        <div><i class="fa-solid fa-phone purple-icon"></i><h3>Kontak Pengurus</h3></div>
+                        <a href="#kontak">Lihat Semua</a>
+                    </div>
+
+                    <div class="contact-row">
+                        <span class="avatar purple">AS</span><div><small>Ketua</small><strong>Andi Setiawan</strong></div>
+                        <span class="phone"><i class="fa-solid fa-phone"></i> 0812-3456-7890</span>
+                    </div>
+                    <div class="contact-row">
+                        <span class="avatar green">SW</span><div><small>Bendahara</small><strong>Sri Wahyuni</strong></div>
+                        <span class="phone"><i class="fa-solid fa-phone"></i> 0813-4567-8901</span>
+                    </div>
+                    <div class="contact-row">
+                        <span class="avatar orange">BS</span><div><small>Sekretaris</small><strong>Budi Santoso</strong></div>
+                        <span class="phone"><i class="fa-solid fa-phone"></i> 0814-5678-9012</span>
+                    </div>
+                </article>
+            </section>
+
+            <!-- EXTRA SECTIONS -->
+            <section class="extra-grid">
+                <article class="card extra-card" id="iuran">
+                    <div class="card-title"><div><i class="fa-solid fa-wallet purple-icon"></i><h3>Ringkasan Iuran</h3></div></div>
+                    <div class="finance">
+                        <div><span>Total Tagihan</span><strong>Rp 15.000.000</strong></div>
+                        <div><span>Sudah Dibayar</span><strong class="green">Rp 12.500.000</strong></div>
+                        <div><span>Belum Dibayar</span><strong class="red">Rp 2.500.000</strong></div>
+                    </div>
+                    <div class="progress"><span></span></div>
+                    <small>83% pembayaran sudah diterima</small>
+                </article>
+
+                <article class="card extra-card" id="galeri">
+                    <div class="card-title"><div><i class="fa-solid fa-images purple-icon"></i><h3>Galeri Kegiatan</h3></div></div>
+                    <div class="gallery">
+                        <div><i class="fa-solid fa-people-group"></i><span>Pertemuan Arisan</span></div>
+                        <div><i class="fa-solid fa-utensils"></i><span>Acara Keluarga</span></div>
+                        <div><i class="fa-solid fa-handshake"></i><span>Kegiatan Paguyuban</span></div>
+                    </div>
+                </article>
+            </section>
+
+            <footer>
+                <span>© 2026 Arisan Boyolali. All Rights Reserved.</span>
+                <span>Dibuat dengan ❤️ untuk kebersamaan</span>
+            </footer>
+        </div>
+    </main>
+</div>
+
+<!-- MEMBER MODAL -->
+<div class="modal" id="memberModal">
+    <div class="modal-box">
+        <button class="modal-close" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
+        <div class="avatar purple modal-avatar">AS</div>
+        <h2 id="modalName">Andi Setiawan</h2>
+        <p>Anggota Arisan Boyolali</p>
+        <div class="modal-data">
+            <div><span>RT</span><strong id="modalRT">RT 01</strong></div>
+            <div><span>No. HP</span><strong id="modalPhone">0812-3456-7890</strong></div>
+            <div><span>Status</span><strong class="green">Aktif</strong></div>
+        </div>
+        <a id="modalCall" class="modal-call" href="#"><i class="fa-solid fa-phone"></i> Hubungi Anggota</a>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
