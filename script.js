@@ -1,118 +1,325 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const body = document.body;
-    const themeToggle = document.getElementById("themeToggle");
-    const mobileToggle = document.getElementById("mobileToggle");
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* =========================
+       ELEMENT
+    ========================= */
+
     const sidebar = document.getElementById("sidebar");
-    const globalSearch = document.getElementById("globalSearch");
+    const mobileToggle = document.getElementById("mobileToggle");
+    const themeToggle = document.getElementById("themeToggle");
+
+    const searchInput = document.getElementById("globalSearch");
+
     const modal = document.getElementById("memberModal");
     const modalClose = document.getElementById("modalClose");
 
-    // Dark mode
-    const savedTheme = localStorage.getItem("arisan-theme");
-    if (savedTheme === "dark") {
-        body.classList.add("dark");
-        themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+    const modalName = document.getElementById("modalName");
+    const modalRT = document.getElementById("modalRT");
+    const modalPhone = document.getElementById("modalPhone");
+    const modalCall = document.getElementById("modalCall");
+    const modalAvatar = document.querySelector(".modal-avatar");
+
+
+    /* =========================
+       MOBILE SIDEBAR
+    ========================= */
+
+    if (mobileToggle) {
+
+        mobileToggle.addEventListener("click", function () {
+
+            sidebar.classList.toggle("open");
+
+        });
+
     }
 
-    themeToggle.addEventListener("click", () => {
-        body.classList.toggle("dark");
-        const dark = body.classList.contains("dark");
-        localStorage.setItem("arisan-theme", dark ? "dark" : "light");
-        themeToggle.innerHTML = dark
-            ? '<i class="fa-solid fa-sun"></i>'
-            : '<i class="fa-solid fa-moon"></i>';
-    });
 
-    // Mobile sidebar
-    mobileToggle.addEventListener("click", () => {
-        sidebar.classList.toggle("open");
-    });
+    /* =========================
+       CLOSE MOBILE SIDEBAR
+    ========================= */
 
-    document.querySelectorAll(".nav-item").forEach(item => {
-        item.addEventListener("click", () => {
-            document.querySelectorAll(".nav-item").forEach(x => x.classList.remove("active"));
+    document.querySelectorAll(".nav-item").forEach(function (item) {
+
+        item.addEventListener("click", function () {
+
+            if (window.innerWidth <= 900) {
+                sidebar.classList.remove("open");
+            }
+
+            document.querySelectorAll(".nav-item").forEach(function (nav) {
+                nav.classList.remove("active");
+            });
+
             item.classList.add("active");
-            sidebar.classList.remove("open");
+
         });
+
     });
 
-    // Search anggota / content
-    globalSearch.addEventListener("input", e => {
-        const keyword = e.target.value.trim().toLowerCase();
 
-        document.querySelectorAll("#memberTable tbody tr").forEach(row => {
-            const name = row.dataset.name.toLowerCase();
-            row.style.display = name.includes(keyword) ? "" : "none";
+    /* =========================
+       DARK MODE
+    ========================= */
+
+    const savedTheme = localStorage.getItem("gadelan-theme");
+
+    if (savedTheme === "dark") {
+
+        document.body.classList.add("dark");
+
+        if (themeToggle) {
+            themeToggle.innerHTML =
+                '<i class="fa-solid fa-sun"></i>';
+        }
+
+    }
+
+
+    if (themeToggle) {
+
+        themeToggle.addEventListener("click", function () {
+
+            document.body.classList.toggle("dark");
+
+            const dark =
+                document.body.classList.contains("dark");
+
+            localStorage.setItem(
+                "gadelan-theme",
+                dark ? "dark" : "light"
+            );
+
+            themeToggle.innerHTML = dark
+                ? '<i class="fa-solid fa-sun"></i>'
+                : '<i class="fa-solid fa-moon"></i>';
+
         });
 
-        document.querySelectorAll(".nav-item").forEach(item => {
-            const text = item.textContent.toLowerCase();
-            item.style.opacity = keyword && !text.includes(keyword) ? ".55" : "1";
-        });
-    });
+    }
 
-    // Member modal
-    const memberData = {
-        "Andi Setiawan": ["RT 01", "0812-3456-7890", "AS", "purple"],
-        "Sri Wahyuni": ["RT 02", "0813-4567-8901", "SW", "green"],
-        "Budi Santoso": ["RT 03", "0814-5678-9012", "BS", "orange"],
-        "Siti Rahma": ["RT 04", "0815-6789-0123", "SR", "pink"],
-        "Dedi Kurniawan": ["RT 05", "0816-7890-1234", "DK", "gray"]
+
+    /* =========================
+       SEARCH ANGGOTA
+    ========================= */
+
+    if (searchInput) {
+
+        searchInput.addEventListener("input", function () {
+
+            const keyword =
+                searchInput.value.toLowerCase().trim();
+
+            const rows =
+                document.querySelectorAll("#memberTable tbody tr");
+
+            rows.forEach(function (row) {
+
+                const name =
+                    row.getAttribute("data-name") ||
+                    row.textContent;
+
+                if (
+                    name.toLowerCase().includes(keyword)
+                ) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+
+            });
+
+        });
+
+    }
+
+
+    /* =========================
+       DATA ANGGOTA
+    ========================= */
+
+    const members = {
+
+        "Andi Setiawan": {
+            initials: "AS",
+            rt: "RT 01",
+            phone: "0812-3456-7890",
+            color: "green-avatar"
+        },
+
+        "Sri Wahyuni": {
+            initials: "SW",
+            rt: "RT 02",
+            phone: "0813-4567-8901",
+            color: "blue-avatar"
+        },
+
+        "Budi Santoso": {
+            initials: "BS",
+            rt: "RT 03",
+            phone: "0814-5678-9012",
+            color: "orange-avatar"
+        },
+
+        "Siti Rahma": {
+            initials: "SR",
+            rt: "RT 04",
+            phone: "0815-6789-0123",
+            color: "pink-avatar"
+        },
+
+        "Dedi Kurniawan": {
+            initials: "DK",
+            rt: "RT 05",
+            phone: "0816-7890-1234",
+            color: "gray-avatar"
+        }
+
     };
 
-    document.querySelectorAll(".view-btn").forEach(btn => {
-        btn.addEventListener("click", () => {
-            const name = btn.dataset.member;
-            const data = memberData[name];
-            if (!data) return;
 
-            document.getElementById("modalName").textContent = name;
-            document.getElementById("modalRT").textContent = data[0];
-            document.getElementById("modalPhone").textContent = data[1];
+    /* =========================
+       OPEN MEMBER MODAL
+    ========================= */
 
-            const avatar = document.querySelector(".modal-avatar");
-            avatar.textContent = data[2];
-            avatar.className = "avatar modal-avatar " + data[3];
+    function openMemberModal(name) {
 
-            document.getElementById("modalCall").href = "tel:" + data[1].replace(/[^0-9+]/g, "");
-            modal.classList.add("show");
-        });
-    });
+        const member = members[name];
 
-    function closeModal() {
-        modal.classList.remove("show");
+        if (!member || !modal) {
+            return;
+        }
+
+        modalName.textContent = name;
+        modalRT.textContent = member.rt;
+        modalPhone.textContent = member.phone;
+
+        modalAvatar.textContent =
+            member.initials;
+
+        modalAvatar.className =
+            "modal-avatar avatar " +
+            member.color;
+
+        const phoneNumber =
+            member.phone.replace(/[^0-9+]/g, "");
+
+        modalCall.href =
+            "tel:" + phoneNumber;
+
+        modal.classList.add("show");
+
+        document.body.style.overflow = "hidden";
+
     }
 
-    modalClose.addEventListener("click", closeModal);
-    modal.addEventListener("click", e => {
-        if (e.target === modal) closeModal();
+
+    /* =========================
+       MEMBER BUTTON
+    ========================= */
+
+    document.querySelectorAll(".view-btn").forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            const name =
+                button.getAttribute("data-member");
+
+            openMemberModal(name);
+
+        });
+
     });
 
-    document.addEventListener("keydown", e => {
-        if (e.key === "Escape") {
-            closeModal();
-            sidebar.classList.remove("open");
+
+    /* =========================
+       CLOSE MODAL
+    ========================= */
+
+    function closeModal() {
+
+        if (!modal) {
+            return;
         }
+
+        modal.classList.remove("show");
+
+        document.body.style.overflow = "";
+
+    }
+
+
+    if (modalClose) {
+
+        modalClose.addEventListener(
+            "click",
+            closeModal
+        );
+
+    }
+
+
+    if (modal) {
+
+        modal.addEventListener("click", function (event) {
+
+            if (event.target === modal) {
+                closeModal();
+            }
+
+        });
+
+    }
+
+
+    document.addEventListener("keydown", function (event) {
+
+        if (event.key === "Escape") {
+            closeModal();
+        }
+
     });
 
-    // Active menu follows section scrolling
-    const sections = [...document.querySelectorAll("[id]")].filter(el =>
-        ["dashboard", "anggota", "iuran", "jadwal", "penerima", "pengumuman", "galeri", "kontak"].includes(el.id)
+
+    /* =========================
+       BUTTON FEEDBACK
+    ========================= */
+
+    document.querySelectorAll(".text-button").forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            alert(
+                "Fitur data lengkap dapat dikembangkan selanjutnya."
+            );
+
+        });
+
+    });
+
+
+    const addButton =
+        document.querySelector(".green-button");
+
+    if (addButton) {
+
+        addButton.addEventListener("click", function () {
+
+            alert(
+                "Form tambah anggota dapat dikembangkan pada tahap berikutnya."
+            );
+
+        });
+
+    }
+
+
+    /* =========================
+       CONSOLE CHECK
+    ========================= */
+
+    console.log(
+        "Gadelan Rukun Dashboard berhasil dimuat."
     );
 
-    const observer = new IntersectionObserver(entries => {
-        const visible = entries
-            .filter(entry => entry.isIntersecting)
-            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-        if (!visible) return;
-
-        const target = document.querySelector(`.nav-item[href="#${visible.target.id}"]`);
-        if (target) {
-            document.querySelectorAll(".nav-item").forEach(x => x.classList.remove("active"));
-            target.classList.add("active");
-        }
-    }, { rootMargin: "-30% 0px -60% 0px", threshold: [0, .2, .5] });
-
-    sections.forEach(section => observer.observe(section));
 });
